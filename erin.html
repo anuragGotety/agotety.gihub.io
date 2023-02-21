@@ -60,9 +60,21 @@
 												  <li style="margin-left:2em; padding-bottom: 0;">Building the menu was the easy part, implementing the various features was not so much. I had to make sure that the resolution scaling would not affect anything else in the game canvas. This was accomplished by using the unity in-built funtion SetResolution(). I created an array of various resolutions that the player could cycle through and allow them to apply the one that suits their needs. </li>
 												 </ol>
 												</li>
-												<li>Created a dynamic UI bar which displays player health, mana and level progression. It also keeps track of bonus energy, number of possible constellations and currency. </li>
+												<li>Created a dynamic UI bar which displays player health, mana and level progression. It also keeps track of bonus energy, number of possible constellations and currency. 
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">The designer, producer and I spent hours mapping out what the UI bar should look like. It should be informative, intuitive and visuallly appealing, but not distracting. We wanted to craft the ultimate player experience.</li>
+												  <li style="margin-left:2em; padding-bottom: 0;">It was supposed to be a dynamic UI bar which displays player health, mana and level progression. This was accomplished by getting the values from the GameManager script and updating the UI bar as the game progresses.</li>
+												  <li style="margin-left:2em">Bonus energy, number of possible constellations and currency were all imported from the StarManager script and UI would update to reflect those values. </li>
+												  </ol>
+												
+												</li>
 												<li>Tweened many sprite elements in the game to respond to player interactions and moves. </li>
-												<li>Implemented player animations, created by the art team, for various events. Also implanted a sprite-flash (like Pokemon) when taking damage. </li>
+												<li>Implemented player animations, created by the art team, for various events. Also implanted a sprite-flash (like Pokemon) when taking damage. 
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">I implemented player/enemy attack and idle animations triggered during various encounters.  </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">The designers and I felt that there is not much feedback when the player takes damage. So, we decided to create a sprite-flash. This was accomplished by swapping out the player-sprite material for a new “flash” material for half a second.  </li>
+												 </ol>
+												</li>
 											</ul>
 										
 								
