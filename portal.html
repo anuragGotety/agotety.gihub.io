@@ -52,8 +52,19 @@
 								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
 								<h3>Details</h3>
 											<ul>
-												<li>Implemented the core mechanics of the game using Euler calculations. Core gameplay loop was designed and implemented from scratch. </li>
-												<li>Procedurally generated two types of enemies and three different power ups to spawn in different locations of the map. Increased difficulty of enemies as game goes on. </li>
+												<li>Implemented the core mechanics of the game using Euler calculations. Core gameplay loop was designed and implemented from scratch. 
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">Implementing the core mechanism was the biggest hurdle while creating the game. I had to figure out a way to allow the player to rotate around the blackhole upto a certain radius.</li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I acomplished this by tying the vertical input to the radius and the horizontal input to the angle of rotation. I gave both the radius and angle a max ceiling value and calculated the euler angle with the position vector and angle of rotation. </li>
+												 </ol>
+												</li>
+												<li>Procedurally generated two types of enemies and three different power ups to spawn in different locations of the map. Increased difficulty of enemies as game goes on.
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">Since I was the designer of this game, I had to figure out what type of enemies I wanted to include. I decided to go with a simple obstacle-type (asteroid) and an enemy shooter. Coding their movements was tricky as I had to spawn them randomly and move them similar to the player. </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I accomplished this by first creating a “spawn field” of some sort. I had min and max x coordinate values and the position of the enemy spawning would be based on a random number from within the range. The enemies would also spawn randomly based on a random number. </li>
+												   <li style="margin-left:2em">The enemy asteroid was simple enough to code, but the shooter was a bit more complex. I had planned for the shooter to pause around the blackhole and create a ring of defense. This was acoomplished by fixing the enemy shooter radius once it reached a certain limit. I then reversed the asset and invoked a new StartShootingReverse() function, which changed the direction of the projectile. </li>
+												 </ol>
+												</li>
 												<li>Animations were implemented on enemy/player collisions.</li>
 												<li>Developed a UI system for the game which includes a menu, player stats and help screen. </li>
 											</ul>
