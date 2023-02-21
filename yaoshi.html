@@ -53,17 +53,25 @@
 								<h3>Details</h3>
 											<ul>
 												<li>Implemented core mechanisms of player movement and modified the script to include a double jump feature. 
-												Adding the double jump feature was a very interesting task. The jump feature was already implemeted but I had to work with the code in such a manner to allow double jump. I had to manipulate the various player states with different conditionals in order to figure out when double jump should be allowed and when it should not. In the end, I figured it out by modifying the original jumpState mechanism to work with a double jump. This taught me the nuances of language in game coding. </li>
-												<li>Developed the cinematography of the game using Cinemachine. The producer and discussed in detail what the game was supposed to look like. We wanted it to seem like the player was running up the trunk of a tree in a spiral fashion. Essentially, a 3d perspective in a 2d game.
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">Adding the double jump feature was a very interesting task. The jump feature was already implemeted but I had to work with the code in such a manner to allow doule jump.</li>
+												  <li style="margin-left:2em; padding-bottom: 0;"> I had to manipulate the various player states with different conditionals in order to figure out when double jump should be allowed and when it should not. In the end, I figured it out by modifying the original jumpState mechanism to work with a double jump. This taught me the nuances of language in game coding.</li>
+												 </ol>
+												</li>
+												<li>Developed the cinematography of the game using Quaternion rotations and vertex transformations. 
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">The producer and discussed in detail what the game was supposed to look like. We wanted it to seem like the player was running up the trunk of a tree in a spiral fashion. Essentially, a 3d perspective in a 2d game.  </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I developed this by splitting the scene into two layers. The first layer will be the player game scene and the second layer the mountainous background.  </li>
+												  <li style="margin-left:2em; padding-bottom: 1;">For the first layer, I looped the 2D background to react to the player movement. I manipulated the second layer using quaternion rotation. The direction of rotation was calculated by measssuring the distance of the player object from the center rotation referance point.   </li>
+												 </ol>
 
-
-I developed this by splitting the scene into two layers. The first layer will be the player game scene and the second layer the mountainous background.  
-
-For the first layer, I looped the 2D background to react to the player movement. I manipulated the second layer using quaternion rotation. The direction of rotation was calculated by measssuring the distance of the player object from the center rotation referance point.   
-
-    </li>
+												</li>
 												<li>Created the UI system of the game which included the menu systems, win-lose screens and a store page. 
-												I worked on all the UI of the game for it to seem as natural and intuitive as possible. We had planned a Shop scene too where the player can purchase powerups, but we scrapped it as we didn’t have the reasources to implement it in time for the game jam. </li>
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">I worked on all the UI of the game for it to seem as natural and intuitive as possible. </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I created a Shop scene too where the player can purchase powerups, but we scrapped it as we didn’t have the resources to implement it in time for the game jam. </li>
+												 </ol>
+												</li>
 												
 											</ul>
 							</article>
