@@ -49,7 +49,47 @@
 									<h2><a href="#">Unity 3d demo </h2>
 									<p>An interactive graphics demo built in unity 3d. No unity primitives were used. All the objects, lighting and textures were computed in the script using HL/SL. </p>
 								</header>
-								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+																<!-- Slideshow container -->
+									<div class="slideshow-container">
+
+									  <!-- Full-width images with number and caption text -->
+									  <div class="mySlides fade">
+										<div class="numbertext">1 / 4</div>
+										<img src="unityLightingShader.jpg" style="width:100%">
+										<div class="text">Caption Text</div>
+									  </div>
+
+									  <div class="mySlides fade">
+										<div class="numbertext">2 / 4</div>
+										<img src="unityLightingShader2.jpg" style="width:100%">
+										<div class="text">Caption Two</div>
+									  </div>
+
+									  <div class="mySlides fade">
+										<div class="numbertext">3 / 4</div>
+										<img src="unitySurface.jpg" style="width:100%">
+										<div class="text">Caption Three</div>
+									  </div>
+
+									  <div class="mySlides fade">
+										<div class="numbertext">4 / 4</div>
+										<img src="interactive.gif" style="width:100%">
+										<div class="text">Caption Three</div>
+									  </div>
+
+									  <!-- Next and previous buttons -->
+									  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+									</div>
+									<br>
+
+									<!-- The dots/circles -->
+									<div style="text-align:center">
+									  <span class="dot" onclick="currentSlide(1)"></span>
+									  <span class="dot" onclick="currentSlide(2)"></span>
+									  <span class="dot" onclick="currentSlide(3)"></span>
+									  <span class="dot" onclick="currentSlide(4)"></span>
+									</div>
 								<h3>Details</h3>
 											<ul>
 												<li>Two lighting models were created to illuminate the scene calculated with Phong’s interpolation.  </li>
