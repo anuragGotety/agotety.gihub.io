@@ -52,8 +52,20 @@
 								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
 								<h3>Details</h3>
 											<ul>
-												<li>Implemented core mechanics of the gameplay loop. This included player movement (up-down and strafing) as well as forward motion of the player.  </li>
-												<li>Procedurally generated obstacles in randomized positions for player to dodge while flying forward.  . </li>
+												<li>Implemented core mechanics of the gameplay loop. This included player movement (up-down and strafing) as well as forward motion of the player. . 
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">When formulating ideas for gameplay, my team and I had to first decide what actions the player should be allowed to do. Since this was a feature-demo, we decided to keep it simple and allow the player free X-Y movement, while fixing the velocity on the Z axis.  </li>
+												  <li style="margin-left:2em; padding-bottom: 0;"> Top-down movement was implemented by interpolating between forward speed and the vertical input by the vertical acceleration for each frame. Strafing was implemented similarly by interpolating between strafe speed and horizontal input with 
+												  intervals of horizontal acceleration for each frame. The player’s final position was calculated with the summation of their up and right transformations with the computed vertical and strafe values based on their input, per frame. The x and Y values were clamped so that the player does not leave the screen. </li>
+												  <li style="margin-left:2em; padding-bottom: 1;">The bank angle was calculated by getting the horizontal input from the player and rotating it around the Z axis using Quaternion.Euler(). The direction of banking was determined by the strafe speed and calculated by interpolating between the current rotation and target rotation by each frame.</li>
+												 </ol>
+												</li>
+												<li>Procedurally generated obstacles in randomized positions for player to dodge while flying forward.   
+												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
+												  <li style="margin-left:2em">The obstacles were spawned based on the position relative to the ground tile. The tile had 4 empty game objects attached to it. Three for spawning the obstacles (left, right, center) and one for spawning the next tile.  </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">The obstacle prefab would be instantiated at one of the three spawn points based on a random number generated between zero and three.  </li>
+												  <li style="margin-left:2em; padding-bottom: 1;">The ground tile also had a box collider attached to it. When the player exits the collider, it would trigger the script to spawn the next ground tile at the spawn point. </li>
+												 </ol>												
 											</ul>
 							</article>
 
