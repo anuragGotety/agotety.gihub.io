@@ -122,12 +122,14 @@ function showSlides(n) {
 									</div>
 								<h3>Details</h3>
 											<ul>
+												<h2>Rotational Mechanics and Player Controller</h2>
 												<li>Implemented the core mechanics of the game using Euler calculations. Core gameplay loop was designed and implemented from scratch. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">Implementing the core mechanism was the biggest hurdle while creating the game. I had to figure out a way to allow the player to rotate around the blackhole upto a certain radius.</li>
 												  <li style="margin-left:2em; padding-bottom: 0;">I acomplished this by <b>tying the vertical input to the radius and the horizontal input to the angle of rotation</b>. I gave both the <b>radius and angle a max ceiling value</b> and calculated the <b>euler angle with the position vector and angle of rotation</b>. </li>
 												 </ol>
 												</li>
+												<h2>Enemy AI Programming</h2>
 												<li>Procedurally generated two types of enemies and three different power ups to spawn in different locations of the map. Increased difficulty of enemies as game goes on.
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">Since I was the designer of this game, I had to figure out what type of enemies I wanted to include. I decided to go with a <b>simple obstacle-type (asteroid)</b> and an <b>enemy shooter</b>. Coding their movements was tricky as I had to spawn them randomly and move them similar to the player. </li>
@@ -135,7 +137,9 @@ function showSlides(n) {
 												   <li style="margin-left:2em; padding-bottom: 1;">The enemy asteroid was simple enough to code, but the shooter was a bit more complex. I had planned for the <b>shooter to pause around the blackhole</b> and create a ring of defense. This was acoomplished by <b>fixing the enemy shooter radius</b> once it reached a certain limit. I then <b>reversed the asset</b> and invoked a new <b>StartShootingReverse()</b> function, which <b>changed the direction of the projectile</b>. </li>
 												 </ol>
 												</li>
+												<h2>Animation Programming</h2>
 												<li>Animations were implemented on enemy/player collisions.</li>
+												<h2>UI/UX Programming<</h2>
 												<li>Developed a UI system for the game which includes a menu, player stats and help screen. </li>
 											</ul>
 							</article>
