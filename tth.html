@@ -114,8 +114,9 @@ function showSlides(n) {
 									  <span class="dot" onclick="currentSlide(2)"></span>
 									  <span class="dot" onclick="currentSlide(3)"></span>
 									</div>
-								<h3>Details</h3>
+								<!--h3>Details</h3-->
 											<ul>
+												<h2>Player Controller and Flying Mrchanics</h2>
 												<li>Implemented core mechanics of the gameplay loop. This included player movement (up-down and strafing) as well as forward motion of the player. . 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">When formulating ideas for gameplay, my team and I had to first decide what actions the player should be allowed to do. Since this was a feature-demo, we decided to keep it simple and allow the player free X-Y movement, while fixing the velocity on the Z axis.  </li>
@@ -124,6 +125,7 @@ function showSlides(n) {
 												  <li style="margin-left:2em; padding-bottom: 1;">The bank angle was calculated by getting the horizontal input from the player and rotating it around the Z axis using Quaternion.Euler(). The direction of banking was determined by the strafe speed and calculated by interpolating between the current rotation and target rotation by each frame.</li>
 												 </ol>
 												</li>
+												<h2>Obstacle AI Programming</h2>
 												<li>Procedurally generated obstacles in randomized positions for player to dodge while flying forward.   
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">The obstacles were spawned based on the position relative to the ground tile. The tile had 4 empty game objects attached to it. Three for spawning the obstacles (left, right, center) and one for spawning the next tile.  </li>
