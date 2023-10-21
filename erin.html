@@ -127,7 +127,7 @@ function showSlides(n) {
 												<h2>UI/UX Programming</h2>
 												<li>Designed and implemented the menu system for the game. It includes dynamic resolution, media controls and a tutorial screen. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">When I first joined the team, the game was heavily lacking a menu system. I sat with the designers to figure out what were the most important features we wanted to implement. We decided that it should house a tutorial, accesibility features and play-pause options.  </li>
+												  <li style="margin-left:2em">When I first joined the team, the game was heavily lacking a menu system. <b>I sat with the designers to figure out what were the most important features we wanted to implement</b>. We decided that it should house a tutorial, accesibility features and play-pause options.  </li>
 												  <li style="margin-left:2em; padding-bottom: 0;">Building the menu was the easy part, implementing the various features was not so much. I had to make sure that the resolution scaling would not affect anything else in the game canvas. This was accomplished by using the unity in-built funtion SetResolution(). I created an array of various resolutions that the player could cycle through and allow them to apply the one that suits their needs. </li>
 												 <img src="erinMenuMain.jpg" style="width:100%">
 												 <img src="erinMenuOptions.jpg" style="width:100%">
@@ -137,23 +137,23 @@ function showSlides(n) {
 												<li>Created a dynamic UI bar which displays player health, mana and level progression. It also keeps track of bonus energy, number of possible constellations and currency. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">The designer, producer and I spent hours mapping out what the UI bar should look like. It should be informative, intuitive and visuallly appealing, but not distracting. We wanted to craft the ultimate player experience.</li>
-												  <li style="margin-left:2em; padding-bottom: 0;">It was supposed to be a <b>dynamic UI bar</b> which displays <b>player health</b>, <b>mana</b> and <b>level progression</b>. This was accomplished by <b>getting the values from the GameManager script and updating the UI bar as the game progresses.</b></li>
-												  <li style="margin-left:2em; padding-bottom: 1;"><b>Bonus energy, number of possible constellations</b> and <b>currency</b> were all <b>imported from the StarManager script and UI would update to reflect those values.</b> </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">It was supposed to be a <b>dynamic UI bar</b> which displays player health, mana and level progression. This was accomplished by <b>getting the values from the GameManager script and updating the UI bar as the game progresses.</b></li>
+												  <li style="margin-left:2em; padding-bottom: 1;">Bonus energy, number of possible constellations and currency were all <b>imported from the StarManager script and UI would update to reflect those values.</b> </li>
 												  </ol>
 												</li>
 												<h2>Tweening and Animation Programming</h2>
 												<li>Tweened many sprite elements in the game to respond to player interactions and moves. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">I tweened UI elements to react to player moves in order to provide feedback. </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">I used a <b>scaling tween</b> function for the <b>bonus tracker</b>, <b>movement tween</b> when the player takes <b>damage</b> and a <b>color tween</b> for a few <b>UI sprite assets</b>. </li>
+												  <li style="margin-left:2em"><b>I tweened UI elements to react to player moves in order to provide feedback. </b></li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I used a scaling tween function for the bonus tracker, movement tween when the player takes damage and a color tween for a few UI sprite assets. </li>
 												 <img src="bonus tracker tween.gif" style="width:100%">
 												  </ol>
 												
 												</li>
 												<li>Implemented player animations, created by the art team, for various events. Also implanted a sprite-flash (like Pokemon) when taking damage. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">I <b>implemented player/enemy attack</b> and <b>idle animations</b> triggered during various encounters.  </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">The designers and I felt that there is <b>not much feedback when the player takes damage</b>. So, we decided to create a <b>sprite-flash</b>. This was accomplished by <b>swapping out the player-sprite material for a new “flash” material for half a second</b>.  </li>
+												  <li style="margin-left:2em">I implemented player/enemy attack and idle <b>animations triggered during various encounters. </b> </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">The designers and I felt that there is not much feedback when the player takes damage. So, we decided to create a <b>sprite-flash</b>. This was accomplished by <b>swapping out the player-sprite material for a new “flash” material for half a second</b>.  </li>
 												 <img src="player flash.gif" style="width:100%">
 												  </ol>
 												</li>
