@@ -82,7 +82,7 @@ function showSlides(n) {
 																<!-- Slideshow container -->
 									<div class="slideshow-container">
 
-									  <!-- Full-width images with number and caption text -->
+									  <!-- Full-width images with number and caption text >
 									  <div class="mySlides fade">
 										<div class="numbertext">1 / 4</div>
 										<img src="yaoshiCinematography.jpg" style="width:100%">
@@ -99,7 +99,7 @@ function showSlides(n) {
 										<div class="numbertext">3 / 4</div>
 										<img src="yaoshiDoubleJump2.jpg" style="width:100%">
 										<div class="text">implementation of double jump</div>
-									  </div>
+									  </div-->
 
 									  <div class="mySlides fade">
 										<div class="numbertext">4 / 4</div>
@@ -114,7 +114,7 @@ function showSlides(n) {
 									<br>
 
 									<!-- The dots/circles -->
-									<div style="text-align:center">
+									<!--div style="text-align:center">
 									  <span class="dot" onclick="currentSlide(1)"></span>
 									  <span class="dot" onclick="currentSlide(2)"></span>
 									  <span class="dot" onclick="currentSlide(3)"></span>
@@ -129,8 +129,8 @@ function showSlides(n) {
 												  <li style="margin-left:2em; padding-bottom: 0;"> I had to <b>manipulate the various player states</b> with different conditionals in order to figure out when double jump should be allowed and when it should not. In the end, I figured it out by <b>modifying the original jumpState mechanism to work with a double jump</b>. This taught me the <b>nuances of language in game coding</b>.</li>
 												 </ol>
 												</li>
-												<h2>Cinematic System</h2>
-												<li>Developed the parallax-cinematography of the game using Quaternion rotations and vertex transformations. 
+												<h2>Parallax-Cinematic System</h2>
+												<li>Developed the parallax-camera illusion of the game using Quaternion rotations and vertex transformations. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">The producer and discussed in detail what the game was supposed to look like. We wanted it to seem like the player was running up the trunk of a tree in a spiral fashion. Essentially, a <b>3d perspective in a 2d game</b>.  </li>
 												  <li style="margin-left:2em; padding-bottom: 0;">I developed this by <b>splitting the scene into two layers</b>. The <b>first layer</b> will be the <b>player game scene</b> and the <b>second layer</b> the <b>mountainous background</b>.  </li>
