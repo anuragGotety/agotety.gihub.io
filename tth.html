@@ -82,7 +82,7 @@ function showSlides(n) {
 																<!-- Slideshow container -->
 									<div class="slideshow-container">
 
-									  <!-- Full-width images with number and caption text -->
+									  <!-- Full-width images with number and caption text >
 									  <div class="mySlides fade">
 										<div class="numbertext">1 / 3</div>
 										<img src="TTHplayerMovement.jpg" style="width:100%">
@@ -93,7 +93,7 @@ function showSlides(n) {
 										<div class="numbertext">2 / 3</div>
 										<img src="TTHobsSpawn.jpg" style="width:100%">
 										<div class="text">Implementation of obstacle and ground spawning</div>
-									  </div>
+									  </div-->
 
 									  <div class="mySlides fade">
 										<div class="numbertext">3 / 3</div>
@@ -108,7 +108,7 @@ function showSlides(n) {
 									</div>
 									<br>
 
-									<!-- The dots/circles -->
+									<!-- The dots/circles >
 									<div style="text-align:center">
 									  <span class="dot" onclick="currentSlide(1)"></span>
 									  <span class="dot" onclick="currentSlide(2)"></span>
@@ -120,14 +120,14 @@ function showSlides(n) {
 												<li>Implemented core mechanics of the gameplay loop. This included player movement (up-down and strafing) as well as forward motion of the player. . 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">When formulating ideas for gameplay, my team and I had to first decide what actions the player should be allowed to do. Since this was a feature-demo, we decided to keep it simple and allow the player free X-Y movement, while fixing the velocity on the Z axis.  </li>
-												  <li style="margin-left:2em; padding-bottom: 0;"> Top-down movement was implemented by interpolating between forward speed and the vertical input by the vertical acceleration for each frame. Strafing was implemented similarly by interpolating between strafe speed and horizontal input with 
+												  <li style="margin-left:2em; padding-bottom: 0;"> <b>Top-down movement was implemented by interpolating between forward speed and the vertical input by the vertical acceleration for each frame.</b> Strafing was implemented similarly by interpolating between strafe speed and horizontal input with 
 												  intervals of horizontal acceleration for each frame. The player’s final position was calculated with the summation of their up and right transformations with the computed vertical and strafe values based on their input, per frame. The x and Y values were clamped so that the player does not leave the screen. </li>
 												  <li style="margin-left:2em; padding-bottom: 1;">The bank angle was calculated by getting the horizontal input from the player and rotating it around the Z axis using Quaternion.Euler(). The direction of banking was determined by the strafe speed and calculated by interpolating between the current rotation and target rotation by each frame.</li>
 												 <img src="TTHplayerMovement.jpg" style="width:100%">
 												  </ol>
 												</li>
 												<h2>Obstacle AI Programming</h2>
-												<li>Procedurally generated obstacles in randomized positions for player to dodge while flying forward.   
+												<li><b>Procedurally generated obstacles in randomized positions</b> for player to dodge while flying forward.   
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">The obstacles were spawned based on the position relative to the ground tile. The tile had 4 empty game objects attached to it. Three for spawning the obstacles (left, right, center) and one for spawning the next tile.  </li>
 												  <li style="margin-left:2em; padding-bottom: 0;">The obstacle prefab would be instantiated at one of the three spawn points based on a random number generated between zero and three.  </li>
