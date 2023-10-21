@@ -129,7 +129,9 @@ function showSlides(n) {
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">When I first joined the team, the game was heavily lacking a menu system. I sat with the designers to figure out what were the most important features we wanted to implement. We decided that it should house a tutorial, accesibility features and play-pause options.  </li>
 												  <li style="margin-left:2em; padding-bottom: 0;">Building the menu was the easy part, implementing the various features was not so much. I had to make sure that the resolution scaling would not affect anything else in the game canvas. This was accomplished by using the unity in-built funtion SetResolution(). I created an array of various resolutions that the player could cycle through and allow them to apply the one that suits their needs. </li>
-												 </ol>
+												 <img src="erinMenuMain.jpg" style="width:100%">
+												 <img src="erinMenuOptions.jpg" style="width:100%">
+												  </ol>
 												</li>
 												
 												<li>Created a dynamic UI bar which displays player health, mana and level progression. It also keeps track of bonus energy, number of possible constellations and currency. 
@@ -144,14 +146,16 @@ function showSlides(n) {
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">I tweened UI elements to react to player moves in order to provide feedback. </li>
 												  <li style="margin-left:2em; padding-bottom: 0;">I used a <b>scaling tween</b> function for the <b>bonus tracker</b>, <b>movement tween</b> when the player takes <b>damage</b> and a <b>color tween</b> for a few <b>UI sprite assets</b>. </li>
-												 </ol>
+												 <img src="bonus tracker tween.gif" style="width:100%">
+												  </ol>
 												
 												</li>
 												<li>Implemented player animations, created by the art team, for various events. Also implanted a sprite-flash (like Pokemon) when taking damage. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">I <b>implemented player/enemy attack</b> and <b>idle animations</b> triggered during various encounters.  </li>
 												  <li style="margin-left:2em; padding-bottom: 0;">The designers and I felt that there is <b>not much feedback when the player takes damage</b>. So, we decided to create a <b>sprite-flash</b>. This was accomplished by <b>swapping out the player-sprite material for a new “flash” material for half a second</b>.  </li>
-												 </ol>
+												 <div class="text">Player Flash on damage</div>
+												  </ol>
 												</li>
 											</ul>
 										
