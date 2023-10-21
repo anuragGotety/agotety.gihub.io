@@ -82,7 +82,7 @@ function showSlides(n) {
 																<!-- Slideshow container -->
 									<div class="slideshow-container">
 
-									  <!-- Full-width images with number and caption text -->
+									  <!-- Full-width images with number and caption text >
 									  <div class="mySlides fade">
 										<div class="numbertext">1 / 3</div>
 										<img src="portalPlayerMovement.jpg" style="width:100%">
@@ -113,7 +113,7 @@ function showSlides(n) {
 									</div>
 									<br>
 
-									<!-- The dots/circles -->
+									<!-- The dots/circles >
 									<div style="text-align:center">
 									  <span class="dot" onclick="currentSlide(1)"></span>
 									  <span class="dot" onclick="currentSlide(2)"></span>
@@ -126,12 +126,12 @@ function showSlides(n) {
 												<li>Implemented the core mechanics of the game using Euler calculations. Core gameplay loop was designed and implemented from scratch. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">Implementing the core mechanism was the biggest hurdle while creating the game. I had to figure out a way to allow the player to rotate around the blackhole upto a certain radius.</li>
-												  <li style="margin-left:2em; padding-bottom: 0;">I acomplished this by <b>tying the vertical input to the radius and the horizontal input to the angle of rotation</b>. I gave both the <b>radius and angle a max ceiling value</b> and calculated the <b>euler angle with the position vector and angle of rotation</b>. </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I acomplished this by <b>tying the vertical input to the radius and the horizontal input to the angle of rotation</b>. I gave both the radius and angle a max ceiling value (so the player does not fly off screen) and calculated the <b>euler angle with the position vector and angle of rotation</b>. </li>
 												 <img src="portalPlayerMovement.jpg" style="width:100%">
 												  </ol>
 												</li>
 												<h2>Enemy AI Programming</h2>
-												<li>Procedurally generated two types of enemies and three different power ups to spawn in different locations of the map. Increased difficulty of enemies as game goes on.
+												<li><b>Procedurally generated two types of enemies and three different power ups </b> to spawn in different locations of the map. Increased difficulty of enemies as game goes on.
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
 												  <li style="margin-left:2em">Since I was the designer of this game, I had to figure out what type of enemies I wanted to include. I decided to go with a <b>simple obstacle-type (asteroid)</b> and an <b>enemy shooter</b>. Coding their movements was tricky as I had to spawn them randomly and move them similar to the player. </li>
 												  <li style="margin-left:2em; padding-bottom: 0;">I accomplished this by first <b>creating a “spawn field”</b> of some sort. I had <b>min and max x coordinate values</b> and the <b>position of the enemy spawning</b> would be based on a <b>random number from within the range</b>. The enemies would also spawn randomly based on a random number. </li>
@@ -139,11 +139,11 @@ function showSlides(n) {
 												 <img src="portalEnemySpawn.jpg" style="width:100%">
 												   </ol>
 												</li>
-												<h2>Animation Programming</h2>
+												<h2>Animation and UI/UX Programming</h2>
 												<li>Animations were implemented on enemy/player collisions.</li>
-												<h2>UI/UX Programming<</h2>
 												<li>Developed a UI system for the game which includes a menu, player stats and help screen. </li>
-											</ul>
+												
+												</ul>
 							</article>
 
 					
