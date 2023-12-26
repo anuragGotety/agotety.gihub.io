@@ -102,7 +102,7 @@ function showSlides(n) {
 									  </div-->
 
 									  <div class="mySlides fade">
-										<div class="numbertext">3 / 3</div>
+										<!--div class="numbertext">3 / 3</div-->
 										<img src="portal.gif" style="width:100%">
 										<div class="text">Gameplay</div>
 									  </div>
@@ -125,24 +125,33 @@ function showSlides(n) {
 												<h2>Rotational Mechanics and Player Controller</h2>
 												<li>Implemented the core mechanics of the game using Euler calculations. <b>Core gameplay loop was designed and implemented from scratch</b>. 
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">Implementing the core mechanism was the biggest hurdle while creating the game. I had to figure out a way to allow the player to rotate around the blackhole upto a certain radius.</li>
-												  <li style="margin-left:2em; padding-bottom: 0;">I acomplished this by <b>tying the vertical input to the radius and the horizontal input to the angle of rotation</b>. I gave both the radius and angle a max ceiling value (so the player does not fly off screen) and calculated the <b>euler angle with the position vector and angle of rotation</b>. </li>
+												  <li style="margin-left:2em">Implementing the core gravity mechanism was the biggest hurdle while creating the game. I had to figure out a way to allow the player to navigate around the blackhole while simultaneously being drawn in by it. </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I acomplished this by tying the vertical input to the radius and the horizontal input to the angle of rotation.   </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">At the same time, the player would be pulled towards the blackhole, if the computer does not register any input. This causes the player to revolve around the black hole in an elliptical orbit as they slowlet get closer. The force of gravity gets stronger the closeer they are to the blackhole. </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">The system incorporates user input for horizontal and vertical movement, dynamically adjusts the object's position in polar coordinates (radius and angle), and simulates gravitational forces based on a specified attractor (referred to as a black hole). The angle is normalized, and the object's position and rotation are updated accordingly. Additionally, the code includes safeguards to clamp the object's position within specified bounds, ensuring a controlled and engaging user experience. </li>
 												 <img src="portalPlayerMovement.jpg" style="width:100%">
 												  </ol>
 												</li>
 												<h2>Enemy AI Programming</h2>
-												<li><b>Procedurally generated two types of enemies and three different power ups </b> to spawn in different locations of the map. Increased difficulty of enemies as game goes on.
+												<li><b>Procedurally generated three types of enemies and two different power ups </b> to spawn in different locations of the map. Increased difficulty of enemies as game goes on.
 												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">Since I was the designer of this game, I had to figure out what type of enemies I wanted to include. I decided to go with a <b>simple obstacle-type (asteroid)</b> and an <b>enemy shooter</b>. Coding their movements was tricky as I had to spawn them randomly and move them similar to the player. </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">I accomplished this by first <b>creating a “spawn field”</b> of some sort. I had <b>min and max x coordinate values</b> and the <b>position of the enemy spawning</b> would be based on a <b>random number from within the range</b>. The enemies would also spawn randomly based on a random number. </li>
-												   <li style="margin-left:2em; padding-bottom: 1;">The enemy asteroid was simple enough to code, but the shooter was a bit more complex. I had planned for the <b>shooter to pause around the blackhole</b> and create a ring of defense. This was acoomplished by <b>fixing the enemy shooter radius</b> once it reached a certain limit. I then <b>reversed the asset</b> and invoked a new <b>StartShootingReverse()</b> function, which <b>changed the direction of the projectile</b>. </li>
+												  <li style="margin-left:2em">Since I was the designer of this game, I had to figure out what type of enemies I wanted to include. I decided to go with a simple obstacle-type (asteroid) an enemy shooter and a follow enemy. Coding their movements was tricky as I had to spawn them randomly and move them similar to the player. </li>
+												  <li style="margin-left:2em; padding-bottom: 0;">I accomplished this by first creating a "spawn field" of some sort. I had min and max x coordinate values and the position of the enemy spawning would be based on a random number from within the range. The enemies would also spawn randomly based on a random number. </li>
+												   <li style="margin-left:2em; padding-bottom: 1;">The enemy asteroid was simple enough to code, but the shooter was a bit more complex. I had planned for the shooter to pause around the blackhole and create a ring of defense. This was acoomplished by fixing the enemy shooter radius once it reached a certain limit. I then reversed the asset and invoked a new StartShootingReverse() function, which changed the direction of the projectile. </li>
+												   <li style="margin-left:2em; padding-bottom: 1;">The enemy follow was a bit tricker than that. I first calculated the position of the enemy in relation to the player. I set the rotation of the enemy to face the player. In SetPosition(), I make the enemy move in the direction it is facing by using rigidBody.MovePosition(position)</li>
 												 <img src="portalEnemySpawn.jpg" style="width:100%">
 												   </ol>
 												</li>
-												<h2>Animation and UI/UX Programming</h2>
-												<li>Animations were implemented on enemy/player collisions.</li>
-												<li>Developed a UI system for the game which includes a menu, player stats and help screen. </li>
-												
+
+												<h2>Camera Programming</h2>
+												<li><b>implemented a screenshake in order to convey player damage. </li>
+												<li>This was done by creating an observer pattern where external scripts can subscribe to the Static Shake Event and invoke it whenever necessary (during damage). The shake was implemented by tweening the camera’s position and rotation values between a range </li>
+
+												<h2>Particle Animation and UI/UX Programming</h2>
+												<li>Particle effects were created for many player interactions. They were triggered collisions. </li>
+												<li>Developed a UI system for the game which includes an options menu and player stats.  </li>
+												<li>Options menu included audio, SFX and resolution settings. </li>
+
 												</ul>
 							</article>
 
