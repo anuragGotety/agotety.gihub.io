@@ -138,26 +138,89 @@ document.addEventListener("DOMContentLoaded", function() {
 
             <!-- Detailed Work -->
             <section>
-                <h3>Development Breakdown</h3>
-                <h4>UI/UX Programming</h4>
-                <ul>
-                    <li>Developed an intuitive menu system with <b>dynamic resolution scaling</b> and accessibility settings.</li>
-                    <li>Optimized UI elements to improve user experience, reducing confusion by <b>30% in playtests</b>.</li>
-                    <li>Implemented an in-game UI bar that displays <b>health, mana, experience, and currency</b> in real-time.</li>
-                </ul>
+             
+ <h2>UI/UX Programming</h2>
 
-                <h4>Tweening & Animation Programming</h4>
-                <ul>
-                    <li>Created smooth UI animations using <b>DOTween</b> for a polished feel.</li>
-                    <li>Developed a <b>sprite-flash effect</b> when taking damage to enhance combat feedback.</li>
-                    <li>Integrated movement and scaling effects for key UI elements, improving visual engagement.</li>
-                </ul>
+<ul>
+    <li>
+        <b>Designed and implemented a scalable menu system</b>, featuring dynamic resolution scaling, media controls, and an interactive tutorial screen.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Identified critical UI requirements by collaborating with designers, prioritizing **accessibility features, tutorial integration, and play-pause functionality** to enhance the player experience.
+            </li>
+            <li>
+                Developed a **resolution scaling system** using Unity’s <code>Screen.SetResolution()</code> method, ensuring UI elements dynamically adjusted without distorting the game canvas. Implemented an **array-based resolution selector**, allowing players to cycle through and apply preferred display settings.
+            </li>
+        </ul>
+        <img src="erinMenuMain.jpg" style="width:100%; margin-top:10px;">
+        <img src="erinMenuOptions.jpg" style="width:100%; margin-top:10px;">
+    </li>
 
-                <h4>Performance & Optimization</h4>
-                <ul>
-                    <li>Refactored UI rendering logic, reducing processing overhead by <b>40%</b>.</li>
-                    <li>Implemented event-driven UI updates to minimize unnecessary calls, boosting efficiency.</li>
-                </ul>
+    <li>
+        <b>Engineered a dynamic UI bar</b> displaying real-time player stats, including **health, mana, level progression, bonus energy, currency, and constellation tracking**.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Conducted extensive UI/UX discussions with designers and producers to ensure the HUD was **intuitive, informative, and non-intrusive**.
+            </li>
+            <li>
+                Implemented **real-time UI updates** by retrieving and binding gameplay values from the **GameManager** script, ensuring player health, mana, and level progression dynamically reflected in the UI.
+            </li>
+            <li>
+                Integrated additional gameplay metrics—**bonus energy, constellation availability, and currency tracking**—by fetching live data from the **StarManager** script, keeping the UI synchronized with game state changes.
+            </li>
+        </ul>
+    </li>
+</ul>
+
+                <h2>Tweening and Animation Programming</h2>
+
+<ul>
+    <li>
+        <b>Implemented tweening effects</b> for various UI and gameplay elements, enhancing player feedback and responsiveness.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Applied **scaling, movement, and color tweening** to UI elements using interpolation techniques to provide visual feedback based on player actions.
+            </li>
+            <li>
+                Developed a **scaling tween function** for the bonus tracker, **movement tweening** for damage indicators, and **color transitions** for key UI sprite assets.
+            </li>
+        </ul>
+        <img src="bonus tracker tween.gif" style="width:100%; margin-top:10px;">
+    </li>
+
+    <li>
+        <b>Integrated player and enemy animations</b> for various gameplay events, improving immersion and visual clarity.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Implemented **attack, idle, and movement animations** using event-driven triggers within the animation state machine.
+            </li>
+            <li>
+                Designed a **sprite-flash effect** for damage feedback, achieved by temporarily swapping the player's sprite material to a **flash shader** for a brief duration, similar to visual effects in classic RPGs like Pokémon.
+            </li>
+        </ul>
+        <img src="player flash.gif" style="width:100%; margin-top:10px;">
+    </li>
+</ul>
+
+                <h2>Communication & Documentation</h2>
+
+<ul>
+    <li>
+        <b>Facilitated cross-disciplinary collaboration</b> as one of four programmers in a 12-member team, ensuring clear understanding of gameplay systems across departments.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Maintained **effective communication** with artists, designers, and producers through regular meetings, clarifying technical constraints and ensuring design feasibility.
+            </li>
+            <li>
+                Authored **comprehensive technical documentation**, detailing system architecture, gameplay logic, and implementation guidelines to streamline development and future modifications.
+            </li>
+            <li>
+                Established a **structured documentation pipeline**, allowing non-technical team members to reference key mechanics, enabling efficient iteration and rapid adaptation to design changes.
+            </li>
+        </ul>
+    </li>
+</ul>
+
             </section>
         </article>
     </main>
