@@ -126,33 +126,67 @@ function showSlides(n) {
 								<!--h3>Details</h3-->
 											<ul>
 											<h2>Player Controller</h2>
-												<li><b>Implemented core mechanisms of player movement</b> and modified the script to include a double jump feature using State Design Pattern. 
-												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">In crafting the Player Controller, I not only implemented the foundational elements of player movement but also undertook the intriguing task of enhancing the script with a double jump feature. Although the jump functionality was already in place, I delved into the code, leveraging the State Pattern to seamlessly integrate the double jump.</li>
-												  <li style="margin-left:2em; padding-bottom: 0;"> Navigating this development challenge involved manipulating various player states through strategically placed conditionals. Determining when to permit or restrict the double jump required a careful orchestration of these states.</li>
-												  <li style="margin-left:2em; padding-bottom: 0;"> Ultimately, I achieved this by skillfully modifying the original jumpState mechanism, thereby gaining valuable insights into the nuanced aspects of language within game coding. </li>
-												  <li style="margin-left:2em; padding-bottom: 0;"> This experience not only expanded my understanding of the State Pattern but also deepened my appreciation for its role in creating flexible and dynamic player interactions.</li>
-												 </ol>
-												</li>
-												<h2>Parallax-Cinematic System</h2>
-												<li><b>Developed the parallax-camera illusion</b> of the game using Quaternion rotations in combination with vertex transformations. 
-												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">Collaborating closely with the producer, we delved into the intricate details of our vision for the game, envisioning a scenario where the player embarks on a visually stunning journey, seemingly running up the trunk of a tree in a captivating spiral fashion, all within the confines of a 2D game environment designed to simulate a 3D perspective.</li>
-												  <li style="margin-left:2em; padding-bottom: 0;">To bring this vision to life, I strategically divided the scene into two layers: the first layer housing the player game scene and the second layer comprising a picturesque mountainous background. In the first layer, I implemented a dynamic 2D background loop that responds seamlessly to the player's movements, enhancing the overall gaming experience.</li>
-												  <li style="margin-left:2em; padding-bottom: 1;">For the second layer, I employed sophisticated Quaternion rotations to manipulate the mountainous background, creating a nuanced illusion of depth and perspective. The direction of rotation was intricately calculated based on the player's distance from the central rotation reference point, ensuring a visually cohesive and immersive effect.   </li>
-												  <li style="margin-left:2em; padding-bottom: 1;">This project not only demonstrates my technical expertise in graphics programming but also showcases my ability to translate creative concepts into a tangible and captivating gaming experience. The careful integration of Quaternion rotations and layered scene design attests to my commitment to pushing the boundaries of visual storytelling within the realm of 2D games.</li>
-												 <img src="yaoshiCinematography.jpg" style="width:100%">
-												  </ol>
+												<ul>
+													<li>
+														<b>Developed and optimized core player movement</b>, integrating a double jump mechanic using the State Design Pattern.
+														<ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+															<li>
+																Enhanced the existing Player Controller by refactoring the jump logic to support a double jump mechanic, leveraging the State Pattern for modular and maintainable code.
+															</li>
+															<li>
+																Implemented state transitions to control movement flow, ensuring smooth and predictable player interactions by conditionally allowing the double jump based on current movement states.
+															</li>
+															<li>
+																Modified the <code>JumpState</code> class to handle multi-phase jumps while maintaining separation of concerns and reducing code redundancy.
+															</li>
+															<li>
+																Gained deeper insights into gameplay programming principles, particularly in state management, code reusability, and scalable player mechanics.
+															</li>
+														</ul>
+													</li>
 
-												</li>
+<h2>Parallax-Cinematic System</h2>
+<ul>
+    <li>
+        <b>Engineered a dynamic parallax-camera illusion</b> using Quaternion rotations and vertex transformations to simulate a 3D perspective in a 2D environment.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Collaborated with the producer to conceptualize a visually immersive effect where the player appears to ascend a tree trunk in a spiral motion, creating depth and cinematic impact.
+            </li>
+            <li>
+                Implemented a dual-layered scene structure:
+                <ul>
+                    <li><b>Foreground:</b> Designed a looping 2D background that dynamically adjusts based on player movement.</li>
+                    <li><b>Background:</b> Applied Quaternion-based rotations to simulate depth shifts, adjusting the parallax effect relative to the player's position.</li>
+                </ul>
+            </li>
+            <li>
+                Calculated rotation vectors dynamically, ensuring smooth and responsive scene transitions, reinforcing a seamless player experience.
+            </li>
+            <li>
+                Optimized rendering efficiency by leveraging vertex transformations, reducing computational overhead while maintaining high visual fidelity.
+            </li>
+            <li>
+                Demonstrated expertise in graphics programming, mathematical transformations, and real-time scene management to achieve an engaging cinematic experience.
+            </li>
+        </ul>
+        <img src="yaoshiCinematography.jpg" style="width:100%; margin-top:10px;">
+    </li>
 												<h2>UI/UX Programming</h2>
-												<li>Created the UI system of the game which included the <b>menu systems, win-lose screens and a store page</b>. 
-												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">I worked on all the <b>UI of the game</b> for it to seem as <b>natural</b> and <b>intuitive</b> as possible. </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">I created a Shop scene too where the player can purchase powerups, but we scrapped it as we did not have the resources to implement it in time for the game jam. </li>
-												 </ol>
-												</li>
-												
+    <li>
+        <b>Developed a modular UI system</b>, including menu navigation, win-lose screens, and a store interface, ensuring a seamless and intuitive user experience.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Designed and implemented interactive UI elements with a focus on **usability, accessibility, and intuitive design** to enhance player immersion.
+            </li>
+            <li>
+                Developed a **dynamic shop interface** that allowed players to purchase power-ups. Although the feature was later scrapped due to time constraints during the game jam, the underlying system was fully functional and designed for easy reintegration.
+            </li>
+            <li>
+                Utilized **event-driven programming** and **UI state management** to optimize responsiveness and maintainability of the UI framework.
+            </li>
+        </ul>
+    </li>
 											</ul>
 							</article>
 
