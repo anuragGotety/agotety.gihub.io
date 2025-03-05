@@ -124,37 +124,102 @@ function showSlides(n) {
 									</div>
 								<!--h3>Details</h3-->
 											<ul>
-												<h2>Rotational Mechanics and Player Controller</h2>
-												<li>Implemented the core mechanics of the game using Euler calculations. <b>Core gameplay loop was designed and implemented from scratch</b>. 
-												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">Implementing the core gravity mechanism was the biggest hurdle while creating the game. I had to figure out a way to allow the player to navigate around the blackhole while simultaneously being drawn in by it. </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">I acomplished this by tying the vertical input to the radius and the horizontal input to the angle of rotation.   </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">At the same time, the player would be pulled towards the blackhole, if the computer does not register any input. This causes the player to revolve around the black hole in an elliptical orbit as they slowlet get closer. The force of gravity gets stronger the closeer they are to the blackhole. </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">The system incorporates user input for horizontal and vertical movement, dynamically adjusts the object's position in polar coordinates (radius and angle), and simulates gravitational forces based on a specified attractor (referred to as a black hole). The angle is normalized, and the object's position and rotation are updated accordingly. Additionally, the code includes safeguards to clamp the object's position within specified bounds, ensuring a controlled and engaging user experience. </li>
-												 <img src="portalPlayerMovement.jpg" style="width:100%">
-												  </ol>
-												</li>
+												<h2>Rotational Mechanics & Player Controller</h2>
+
+<ul>
+    <li>
+        <b>Designed and implemented the core gameplay loop</b> from scratch, utilizing **Euler-based calculations** for rotational movement and gravitational force simulation.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Engineered a **gravity-based navigation system**, allowing the player to orbit a black hole while simultaneously being drawn towards it.
+            </li>
+            <li>
+                Developed a **polar coordinate movement system**, mapping **vertical input to radius control** and **horizontal input to angular rotation**, enabling fluid navigation around the black hole.
+            </li>
+            <li>
+                Implemented a **passive gravitational pull** mechanic that continuously draws the player towards the black hole when no input is detected, creating a dynamic elliptical orbit.
+            </li>
+            <li>
+                Simulated **inverse-square law gravity scaling**, increasing the gravitational force as the player moves closer to the black hole for a realistic orbital decay effect.
+            </li>
+            <li>
+                Integrated **position clamping and angle normalization** to maintain controlled gameplay, preventing unintended movement anomalies while ensuring a smooth and predictable player experience.
+            </li>
+        </ul>
+        <img src="portalPlayerMovement.jpg" style="width:100%; margin-top:10px;">
+    </li>
+</ul>
+
 												<h2>Enemy AI Programming</h2>
-												<li><b>Procedurally generated three types of enemies and two different power ups </b> to spawn in different locations of the map. Increased difficulty of enemies as game goes on.
-												<ol style="list-style-type: lower-alpha; padding-bottom: 0;">
-												  <li style="margin-left:2em">Since I was the designer of this game, I had to figure out what type of enemies I wanted to include. I decided to go with a simple obstacle-type (asteroid) an enemy shooter and a follow enemy. Coding their movements was tricky as I had to spawn them randomly and move them similar to the player. </li>
-												  <li style="margin-left:2em; padding-bottom: 0;">I accomplished this by first creating a "spawn field" of some sort. I had min and max x coordinate values and the position of the enemy spawning would be based on a random number from within the range. The enemies would also spawn randomly based on a random number. </li>
-												   <li style="margin-left:2em; padding-bottom: 1;">The enemy asteroid was simple enough to code, but the shooter was a bit more complex. I had planned for the shooter to pause around the blackhole and create a ring of defense. This was acoomplished by fixing the enemy shooter radius once it reached a certain limit. I then reversed the asset and invoked a new StartShootingReverse() function, which changed the direction of the projectile. </li>
-												   <li style="margin-left:2em; padding-bottom: 1;">The enemy follow was a bit tricker than that. I first calculated the position of the enemy in relation to the player. I set the rotation of the enemy to face the player. In SetPosition(), I make the enemy move in the direction it is facing by using rigidBody.MovePosition(position)</li>
-												 <img src="portalEnemySpawn.jpg" style="width:100%">
-												   </ol>
-												</li>
+
+<ul>
+    <li>
+        <b>Designed and implemented a procedural enemy spawning system</b>, featuring three distinct enemy types and two power-ups, with dynamic difficulty scaling.
+        <ul style="list-style-type: lower-alpha; padding-bottom: 0;">
+            <li>
+                Developed **three enemy archetypes**:
+                <ul>
+                    <li><b>Asteroid:</b> A passive obstacle with randomized spawn patterns.</li>
+                    <li><b>Shooter:</b> A stationary enemy that forms a defensive ring and fires projectiles.</li>
+                    <li><b>Follower:</b> A homing enemy that actively tracks and pursues the player.</li>
+                </ul>
+            </li>
+            <li>
+                Implemented a **procedural spawn system**, generating enemies within predefined **min-max coordinate boundaries**. Used **random number generation** to control spawn locations and timing for varied encounters.
+            </li>
+            <li>
+                Developed a **stationary shooter AI** that strategically positions itself around the black hole. Once within a set radius, its movement halts, reversing its projectile direction using the <code>StartShootingReverse()</code> function to establish a defensive perimeter.
+            </li>
+            <li>
+                Engineered an **adaptive homing AI** for the follower enemy:
+                <ul>
+                    <li>Calculated real-time positional vectors between enemy and player.</li>
+                    <li>Oriented enemy rotation towards the player's position.</li>
+                    <li>Applied <code>rigidBody.MovePosition()</code> to move in the direction of its facing angle, ensuring smooth pursuit behavior.</li>
+                </ul>
+            </li>
+        </ul>
+        <img src="portalEnemySpawn.jpg" style="width:100%; margin-top:10px;">
+    </li>
+</ul>
+
 
 												<h2>Camera Programming</h2>
-												<li><b>Implemented a screenshake, with Observer Design Pattern, in order to convey player damage. </b></li>
-												<li>This was done by creating an observer pattern where external scripts can subscribe to the Static Shake Event and invoke it whenever necessary (during damage). The shake was implemented by tweening the camera's position and rotation values between a range </li>
-												<img src="portalCamera.jpg" style="width:100%">
+
+<ul>
+    <li>
+        <b>Implemented a dynamic screen shake effect</b> using the **Observer Design Pattern** to enhance visual feedback upon player damage.
+    </li>
+    <li>
+        Designed an **event-driven camera system**, allowing external scripts to subscribe to a **static Shake Event**, triggering controlled screen shake effects in response to in-game events.
+    </li>
+    <li>
+        Applied **tweening functions** to modify the camera's **position and rotation values** within a specified range, creating a smooth and responsive shake effect.
+    </li>
+</ul>
+<img src="portalCamera.jpg" style="width:100%; margin-top:10px;">
 
 
-												<h2>Particle Animation and UI/UX Programming</h2>
-												<li>Particle effects were created for many player interactions. They were triggered collisions.</li>
-												<li>Developed a UI system for the game which includes an options menu and player stats.  </li>
-												<li>Options menu included audio, SFX and resolution settings. </li>
+												<h2>Particle Animation & UI/UX Programming</h2>
+
+<ul>
+    <li>
+        <b>Designed and integrated particle effects</b> for key player interactions, enhancing visual feedback and game responsiveness.
+        <ul>
+            <li>
+                Implemented **collision-triggered particle effects**, dynamically activating upon specific gameplay events to reinforce player actions.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <b>Developed a modular UI system</b>, including an **options menu and player stats display**.
+        <ul>
+            <li>
+                Implemented settings for <b>audio, sound effects (SFX), and resolution scaling</b>, ensuring an adaptable and customizable player experience.
+            </li>
+        </ul>
+    </li>
+</ul>
 
 												</ul>
 							</article>
