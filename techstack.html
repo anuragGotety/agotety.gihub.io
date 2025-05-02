@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Stack Explorer</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #0e0e0e;
+      font-family: sans-serif;
+      color: white;
+    }
+    canvas {
+      display: block;
+    }
+    #tooltip {
+      position: absolute;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 8px;
+      border-radius: 6px;
+      pointer-events: none;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="explorer"></canvas>
+  <div id="tooltip"></div>
+
+  <script>
+    const canvas = document.getElementById('explorer');
+    const ctx = canvas.getContext('2d');
+    const tooltip = document.getElementById('tooltip');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const nodes = [
+      { label: 'React', x: 300, y: 200, r: 40, color: '#61dafb', projects: ['ARDI App', 'Confetti Cuisine'] },
+      { label: 'Unity', x: 700, y: 400, r: 50, color: '#8080ff', projects: ['Portal Defender', 'Erin and the Other World'] },
+      { label: 'TensorFlow', x: 500, y: 300, r: 35, color: '#ffa500', projects: ['CampusVision'] },
+      { label: 'MongoDB', x: 400, y: 500, r: 30, color: '#4db33d', projects: ['Confetti Cuisine'] },
+      { label: 'Django', x: 600, y: 200, r: 30, color: '#092e20', projects: ['Learning Log'] }
+    ];
+
+    function drawNode(node) {
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+      ctx.fillStyle = node.color;
+      ctx.fill();
+      ctx.fillStyle = 'white';
+      ctx.textAlign = 'center';
+      ctx.font = '14px sans-serif';
+      ctx.fillText(node.label, node.x, node.y + 4);
+    }
+
+    function drawAll() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const node of nodes) drawNode(node);
+    }
+
+    canvas.addEventListener('mousemove', (e) => {
+      const mx = e.clientX;
+      const my = e.clientY;
+      let found = false;
+
+      for (const node of nodes) {
+        const dx = node.x - mx;
+        const dy = node.y - my;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < node.r) {
+          tooltip.style.left = `${mx + 10}px`;
+          tooltip.style.top = `${my + 10}px`;
+          tooltip.innerHTML = `<b>${node.label}</b><br>${node.projects.join('<br>')}`;
+          tooltip.style.display = 'block';
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) tooltip.style.display = 'none';
+    });
+
+    drawAll();
+  </script>
+</body>
+</html>
