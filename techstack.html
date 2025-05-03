@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Stack Explorer</title>
+  <title>Tech Stack Explorer - 3D</title>
   <style>
     body {
       margin: 0;
@@ -25,67 +25,169 @@
       font-size: 14px;
       display: none;
     }
+    #filterBar {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      z-index: 10;
+    }
+    #filterBar select {
+      background: #222;
+      color: white;
+      border: none;
+      padding: 5px;
+    }
   </style>
 </head>
 <body>
-  <canvas id="explorer"></canvas>
+  <div id="filterBar">
+    <label for="category">Filter:</label>
+    <select id="category">
+      <option value="all">All</option>
+      <option value="frontend">Frontend</option>
+      <option value="backend">Backend</option>
+      <option value="tools">Tools</option>
+    </select>
+  </div>
   <div id="tooltip"></div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
   <script>
-    const canvas = document.getElementById('explorer');
-    const ctx = canvas.getContext('2d');
     const tooltip = document.getElementById('tooltip');
+    const categorySelect = document.getElementById('category');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const nodes = [
-      { label: 'React', x: 300, y: 200, r: 40, color: '#61dafb', projects: ['ARDI App', 'Confetti Cuisine'] },
-      { label: 'Unity', x: 700, y: 400, r: 50, color: '#8080ff', projects: ['Portal Defender', 'Erin and the Other World'] },
-      { label: 'TensorFlow', x: 500, y: 300, r: 35, color: '#ffa500', projects: ['CampusVision'] },
-      { label: 'MongoDB', x: 400, y: 500, r: 30, color: '#4db33d', projects: ['Confetti Cuisine'] },
-      { label: 'Django', x: 600, y: 200, r: 30, color: '#092e20', projects: ['Learning Log'] }
+    const skills = [
+      { label: 'JavaScript', category: 'frontend' },
+      { label: 'React', category: 'frontend' },
+      { label: 'React Native', category: 'frontend' },
+      { label: 'HTML', category: 'frontend' },
+      { label: 'CSS', category: 'frontend' },
+      { label: 'TypeScript', category: 'frontend' },
+      { label: 'Python', category: 'backend' },
+      { label: 'C#', category: 'backend' },
+      { label: 'C', category: 'backend' },
+      { label: 'Java', category: 'backend' },
+      { label: 'Unity', category: 'tools' },
+      { label: 'Unreal', category: 'tools' },
+      { label: 'Godot', category: 'tools' },
+      { label: 'TensorFlow', category: 'backend' },
+      { label: 'Django', category: 'backend' },
+      { label: 'MongoDB', category: 'backend' },
+      { label: 'SQL', category: 'backend' },
+      { label: 'PostgreSQL', category: 'backend' },
+      { label: 'Firebase', category: 'backend' },
+      { label: 'AWS', category: 'backend' },
+      { label: 'Figma', category: 'tools' },
+      { label: 'Adobe Suite', category: 'tools' },
+      { label: 'Autodesk Maya', category: 'tools' }
     ];
 
-    function drawNode(node) {
-      ctx.beginPath();
-      ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
-      ctx.fillStyle = node.color;
-      ctx.fill();
-      ctx.fillStyle = 'white';
-      ctx.textAlign = 'center';
-      ctx.font = '14px sans-serif';
-      ctx.fillText(node.label, node.x, node.y + 4);
-    }
+    const spheres = [];
+    const labels = [];
+    const group = new THREE.Group();
+    const particleMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1 });
+    const canvas = renderer.domElement;
 
-    function drawAll() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const node of nodes) drawNode(node);
-    }
+    skills.forEach(skill => {
+      const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+      const material = new THREE.MeshStandardMaterial({ color: new THREE.Color(`hsl(${Math.random() * 360}, 100%, 50%)`) });
+      const sphere = new THREE.Mesh(geometry, material);
+      sphere.position.set(Math.random() * 10 - 5, Math.random() * 10 - 5, Math.random() * 10 - 5);
+      sphere.userData = skill;
 
-    canvas.addEventListener('mousemove', (e) => {
-      const mx = e.clientX;
-      const my = e.clientY;
-      let found = false;
+      const labelDiv = document.createElement('div');
+      labelDiv.style.position = 'absolute';
+      labelDiv.style.color = 'white';
+      labelDiv.style.fontSize = '12px';
+      labelDiv.style.pointerEvents = 'none';
+      labelDiv.innerText = skill.label;
+      document.body.appendChild(labelDiv);
+      labels.push({ div: labelDiv, sphere });
 
-      for (const node of nodes) {
-        const dx = node.x - mx;
-        const dy = node.y - my;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < node.r) {
-          tooltip.style.left = `${mx + 10}px`;
-          tooltip.style.top = `${my + 10}px`;
-          tooltip.innerHTML = `<b>${node.label}</b><br>${node.projects.join('<br>')}`;
-          tooltip.style.display = 'block';
-          found = true;
-          break;
-        }
+      group.add(sphere);
+      spheres.push(sphere);
+    });
+    scene.add(group);
+
+    const light = new THREE.PointLight(0xffffff, 2);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    camera.position.z = 12;
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(spheres);
+      if (intersects.length > 0) {
+        const { label } = intersects[0].object.userData;
+        tooltip.style.left = `${e.clientX + 10}px`;
+        tooltip.style.top = `${e.clientY + 10}px`;
+        tooltip.innerHTML = `<b>${label}</b>`;
+        tooltip.style.display = 'block';
+      } else {
+        tooltip.style.display = 'none';
       }
-
-      if (!found) tooltip.style.display = 'none';
     });
 
-    drawAll();
+    window.addEventListener('click', () => {
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(spheres);
+      if (intersects.length > 0) {
+        const obj = intersects[0].object;
+        const particles = new THREE.Geometry();
+        for (let i = 0; i < 100; i++) {
+          const vertex = new THREE.Vector3();
+          vertex.x = obj.position.x + Math.random() - 0.5;
+          vertex.y = obj.position.y + Math.random() - 0.5;
+          vertex.z = obj.position.z + Math.random() - 0.5;
+          particles.vertices.push(vertex);
+        }
+        const system = new THREE.Points(particles, particleMaterial);
+        scene.add(system);
+        setTimeout(() => scene.remove(system), 1000);
+      }
+    });
+
+    categorySelect.addEventListener('change', () => {
+      const selected = categorySelect.value;
+      spheres.forEach(s => {
+        s.visible = (selected === 'all' || s.userData.category === selected);
+      });
+      labels.forEach(({ div, sphere }) => {
+        div.style.display = (sphere.visible ? 'block' : 'none');
+      });
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      group.rotation.y += 0.001;
+      group.rotation.x += 0.0005;
+
+      labels.forEach(({ div, sphere }) => {
+        const pos = sphere.position.clone().project(camera);
+        const x = (pos.x * 0.5 + 0.5) * window.innerWidth;
+        const y = (-(pos.y * 0.5) + 0.5) * window.innerHeight;
+        div.style.left = `${x}px`;
+        div.style.top = `${y}px`;
+      });
+
+      renderer.render(scene, camera);
+    }
+    animate();
   </script>
 </body>
 </html>
