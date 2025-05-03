@@ -25,9 +25,25 @@
       font-size: 14px;
       display: none;
     }
+    #backButton {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #222;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #backButton:hover {
+      background: #444;
+    }
   </style>
 </head>
 <body>
+  <button id="backButton" onclick="location.href='index.html'">← Back to Home</button>
   <canvas id="explorer"></canvas>
   <div id="tooltip"></div>
 
@@ -39,13 +55,22 @@
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const nodes = [
-      { label: 'React', x: 300, y: 200, r: 40, color: '#61dafb', projects: ['ARDI App', 'Confetti Cuisine'] },
-      { label: 'Unity', x: 700, y: 400, r: 50, color: '#8080ff', projects: ['Portal Defender', 'Erin and the Other World'] },
-      { label: 'TensorFlow', x: 500, y: 300, r: 35, color: '#ffa500', projects: ['CampusVision'] },
-      { label: 'MongoDB', x: 400, y: 500, r: 30, color: '#4db33d', projects: ['Confetti Cuisine'] },
-      { label: 'Django', x: 600, y: 200, r: 30, color: '#092e20', projects: ['Learning Log'] }
+    const skills = [
+      'JavaScript', 'React', 'React Native', 'HTML', 'CSS', 'TypeScript', 'Python', 'C#', 'C', 'Java',
+      'Unity', 'Unreal', 'Godot', 'TensorFlow', 'Django', 'MongoDB', 'SQL', 'PostgreSQL',
+      'Firebase', 'AWS', 'Figma', 'Adobe Suite', 'Autodesk Maya'
     ];
+
+    const nodes = skills.map((label, i) => {
+      return {
+        label,
+        x: 150 + Math.random() * (canvas.width - 300),
+        y: 100 + Math.random() * (canvas.height - 200),
+        r: 28 + Math.random() * 10,
+        color: `hsl(${Math.random() * 360}, 70%, 50%)`,
+        projects: []
+      };
+    });
 
     let draggingNode = null;
     let offsetX = 0;
@@ -58,7 +83,7 @@
       ctx.fill();
       ctx.fillStyle = 'white';
       ctx.textAlign = 'center';
-      ctx.font = '14px sans-serif';
+      ctx.font = '12px sans-serif';
       ctx.fillText(node.label, node.x, node.y + 4);
     }
 
@@ -107,7 +132,7 @@
         if (dist < node.r) {
           tooltip.style.left = `${mx + 10}px`;
           tooltip.style.top = `${my + 10}px`;
-          tooltip.innerHTML = `<b>${node.label}</b><br>${node.projects.join('<br>')}`;
+          tooltip.innerHTML = `<b>${node.label}</b>`;
           tooltip.style.display = 'block';
           found = true;
           break;
